@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0F1115;
+  --panel: #17191F;
+  --line: #2B2E37;
+  --paper: #EDEAE2;
+  --signal: #FF4405;
+  --wire: #3DDC97;
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* Custom Display & Mono font utility classes */
+.font-display {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+/* Hard Offset Shadows for Neobrutalist Tactile Buttons & Cards */
+.btn-brutal {
+  border: 2px solid var(--paper);
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 700;
+  border-radius: 2px;
+  box-shadow: 3px 3px 0px var(--line);
+  transition: all 0.05s ease-in-out;
+}
+
+.btn-brutal:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--paper);
+}
+
+.btn-brutal:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--paper);
+}
+
+.btn-brutal-signal {
+  border: 2px solid var(--paper);
+  background-color: var(--signal);
+  color: #FFFFFF;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 700;
+  border-radius: 2px;
+  box-shadow: 3px 3px 0px var(--paper);
+  transition: all 0.05s ease-in-out;
+}
+
+.btn-brutal-signal:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--paper);
+}
+
+.btn-brutal-signal:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--paper);
+}
+
+.btn-brutal-dark {
+  border: 2px solid var(--line);
+  background-color: var(--panel);
+  color: var(--paper);
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 700;
+  border-radius: 2px;
+  box-shadow: 3px 3px 0px var(--line);
+  transition: all 0.05s ease-in-out;
+}
+
+.btn-brutal-dark:hover {
+  border-color: var(--paper);
+  box-shadow: 4px 4px 0px var(--paper);
+}
+
+.btn-brutal-dark:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--line);
+}
+
+/* Card & Ticket Panel Styles */
+.card-dispatch {
+  background-color: var(--panel);
+  border: 2px solid var(--paper);
+  border-radius: 2px;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.card-dispatch-signal {
+  background-color: var(--panel);
+  border: 2px solid var(--signal);
+  border-radius: 2px;
+  box-shadow: 4px 4px 0px var(--signal);
+}
+
+/* Perforated / Dashed Tear-Line Divider */
+.tear-line {
+  border-top: 2px dashed var(--line);
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.tear-line-paper {
+  border-top: 2px dashed var(--paper);
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Rubber-Stamp Status Badge Styles */
+.stamp-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.55rem;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-width: 2.5px;
+  border-style: solid;
+  border-radius: 2px;
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4);
+  line-height: 1;
+}
+
+.stamp-new {
+  border-color: var(--paper);
+  color: var(--paper);
+  background-color: rgba(237, 234, 226, 0.08);
+  transform: rotate(-3deg);
+}
+
+.stamp-in-progress {
+  border-color: #38BDF8;
+  color: #38BDF8;
+  background-color: rgba(56, 189, 248, 0.08);
+  transform: rotate(2deg);
+}
+
+.stamp-escalated {
+  border-color: var(--signal);
+  color: var(--signal);
+  background-color: rgba(255, 68, 5, 0.12);
+  transform: rotate(-4deg);
+  font-weight: 800;
+}
+
+.stamp-resolved {
+  border-color: var(--wire);
+  color: var(--wire);
+  background-color: rgba(61, 220, 151, 0.08);
+  transform: rotate(3deg);
+}
+
+/* Print-In Animation for New Tickets */
+@keyframes ticketPrintIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.98);
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.animate-ticket-print {
+  animation: ticketPrintIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticket-print {
+    animation: none;
+  }
+  .btn-brutal, .btn-brutal-signal, .btn-brutal-dark {
+    transition: none;
+  }
+}
