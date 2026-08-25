@@ -59,7 +59,8 @@ git push -u origin main
 ## 4. MULTI-PAGE ROUTING CONVENTIONS
 
 Maintain the following multi-page App Router structure:
-- `/` — Main Dispatch Dashboard Feed
+- `/` — Dedicated Landing Page / Overview (First Point of Contact)
+- `/dispatch` — Main Dispatch Dashboard Feed
 - `/intake` — Dedicated Ticket Intake Simulation Page
 - `/cases` — Dedicated Case Directory Queue
 - `/cases/[id]` — Dedicated Single Case Workbench Page

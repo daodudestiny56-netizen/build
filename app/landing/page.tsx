@@ -109,7 +109,7 @@ export default function LandingPage() {
           {/* Call-To-Action Button Group */}
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <Link
-              href="/"
+              href="/dispatch"
               className="btn-3d-signal px-5 py-3 font-mono text-xs font-bold uppercase flex items-center space-x-2"
             >
               <Layers className="w-4 h-4 stroke-[2.5]" />
@@ -233,7 +233,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <Link
-              href="/"
+              href="/dispatch"
               className="p-4 bg-[#0D0E12] border-2 border-[#262933] hover:border-[#FF3B00] transition group space-y-2"
             >
               <div className="flex items-center justify-between">

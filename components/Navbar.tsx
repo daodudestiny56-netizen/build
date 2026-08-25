@@ -47,8 +47,8 @@ export default function Navbar({
   }, []);
 
   const navLinks = [
-    { href: '/', label: 'DISPATCH FEED', icon: Layers },
-    { href: '/landing', label: 'ABOUT / GUIDES', icon: HelpCircle },
+    { href: '/', label: 'HOME / ABOUT', icon: HelpCircle },
+    { href: '/dispatch', label: 'DISPATCH FEED', icon: Layers },
     { href: '/intake', label: 'NEW INTAKE', icon: PlusSquare },
     { href: '/cases', label: 'CASES QUEUE', icon: Inbox },
     { href: '/customers', label: 'CRM DIRECTORY', icon: Users },
