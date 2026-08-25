@@ -33,13 +33,13 @@ export default function StampBadge({ status, size = 'md' }: StampBadgeProps) {
       break;
   }
 
-  let sizeClass = 'text-[10px] px-2 py-0.5 border-[2px]';
-  if (size === 'sm') sizeClass = 'text-[9px] px-1.5 py-0 border-[1.5px]';
-  if (size === 'lg') sizeClass = 'text-xs px-3 py-1 border-[3px] tracking-widest';
+  let sizeClass = 'text-[10px] px-2 py-0.5 border-[2.5px]';
+  if (size === 'sm') sizeClass = 'text-[9px] px-1.5 py-0 border-[2px]';
+  if (size === 'lg') sizeClass = 'text-xs px-3 py-1 border-[3.5px] tracking-widest';
 
   return (
     <span
-      className={`stamp-badge ${stampStyle} ${sizeClass} font-display select-none`}
+      className={`stamp-3d ${stampStyle} ${sizeClass} font-display uppercase tracking-wider select-none`}
     >
       {labelText}
     </span>
