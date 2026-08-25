@@ -21,12 +21,15 @@ interface NavbarProps {
   isPollingActive?: boolean;
   onTogglePolling?: () => void;
   lastEscalateCheckTime?: string | null;
+  onOpenDeliverables?: () => void;
 }
 
 export default function Navbar({
   onManualRefresh,
   isPollingActive = true,
   onTogglePolling,
+  lastEscalateCheckTime,
+  onOpenDeliverables,
 }: NavbarProps) {
   const pathname = usePathname();
   const [timeStr, setTimeStr] = useState<string>('');
@@ -79,6 +82,12 @@ export default function Navbar({
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => {
+                  if (link.href === '/deliverables' && onOpenDeliverables) {
+                    e.preventDefault();
+                    onOpenDeliverables();
+                  }
+                }}
                 className={`px-3 py-1.5 border-2 font-bold flex items-center space-x-1.5 transition ${
                   isActive
                     ? 'bg-[#F4F0EA] text-[#0D0E12] border-[#F4F0EA] shadow-[3px_3px_0px_#FF3B00]'
@@ -163,7 +172,13 @@ export default function Navbar({
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  if (link.href === '/deliverables' && onOpenDeliverables) {
+                    e.preventDefault();
+                    onOpenDeliverables();
+                  }
+                }}
                 className={`w-full p-2.5 border-2 font-bold flex items-center space-x-2 transition ${
                   isActive
                     ? 'bg-[#F4F0EA] text-[#0D0E12] border-[#F4F0EA] shadow-[3px_3px_0px_#FF3B00]'
