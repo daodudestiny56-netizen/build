@@ -26,10 +26,10 @@ export default function IntakePage() {
             </div>
             <div>
               <h1 className="font-display text-xl font-bold tracking-tight text-[#EDEAE2]">
-                NEW TICKET INTAKE STUB
+                SIMULATE TICKET INTAKE
               </h1>
               <p className="font-mono text-xs text-slate-400">
-                Simulate incoming customer emails/complaints & execute real-time AI triage classification
+                Submit customer requests to test how AI instantly analyzes, categorizes, and assigns SLA targets.
               </p>
             </div>
           </div>

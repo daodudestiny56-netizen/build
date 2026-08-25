@@ -46,10 +46,10 @@ export default function CustomersDirectoryPage() {
             </div>
             <div>
               <h1 className="font-display text-xl font-bold tracking-tight text-[#EDEAE2]">
-                EMBEDDED CRM // CUSTOMER DIRECTORY
+                CUSTOMER CRM DIRECTORY
               </h1>
               <p className="font-mono text-xs text-slate-400">
-                Deduplicated customer profiles &amp; historical ticket relationship timeline
+                View customer accounts, SLA tiers, and ticket histories.
               </p>
             </div>
           </div>

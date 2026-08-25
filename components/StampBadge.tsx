@@ -5,31 +5,32 @@ import React from 'react';
 interface StampBadgeProps {
   status: 'new' | 'in_progress' | 'resolved' | 'escalated' | string;
   size?: 'sm' | 'md' | 'lg';
+  customText?: string;
 }
 
-export default function StampBadge({ status, size = 'md' }: StampBadgeProps) {
+export default function StampBadge({ status, size = 'md', customText }: StampBadgeProps) {
   const normStatus = (status || 'new').toLowerCase().replace(' ', '_');
 
   let stampStyle = 'stamp-new';
-  let labelText = 'NEW';
+  let labelText = customText || 'NEW';
 
   switch (normStatus) {
     case 'in_progress':
       stampStyle = 'stamp-in-progress';
-      labelText = 'IN PROGRESS';
+      if (!customText) labelText = 'IN PROGRESS';
       break;
     case 'escalated':
       stampStyle = 'stamp-escalated';
-      labelText = 'ESCALATED';
+      if (!customText) labelText = 'ESCALATED';
       break;
     case 'resolved':
       stampStyle = 'stamp-resolved';
-      labelText = 'RESOLVED';
+      if (!customText) labelText = 'RESOLVED';
       break;
     case 'new':
     default:
       stampStyle = 'stamp-new';
-      labelText = 'NEW';
+      if (!customText) labelText = 'NEW';
       break;
   }
 

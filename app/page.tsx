@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import IntakeForm from '@/components/IntakeForm';
 import StatBar from '@/components/StatBar';
@@ -9,7 +10,18 @@ import CaseCard from '@/components/CaseCard';
 import CaseDetailModal from '@/components/CaseDetailModal';
 import EscalationBanner from '@/components/EscalationBanner';
 import SubmissionDeliverablesModal from '@/components/SubmissionDeliverablesModal';
-import { Layers, RefreshCw, Inbox, ShieldCheck } from 'lucide-react';
+import {
+  Layers,
+  RefreshCw,
+  Inbox,
+  ShieldCheck,
+  Sparkles,
+  HelpCircle,
+  X,
+  ArrowRight,
+  PlusSquare,
+  FileText,
+} from 'lucide-react';
 
 export default function Home() {
   const [cases, setCases] = useState<any[]>([]);
@@ -33,6 +45,7 @@ export default function Home() {
   const [escalatedAlerts, setEscalatedAlerts] = useState<any[]>([]);
   const [isPollingActive, setIsPollingActive] = useState(true);
   const [showDeliverables, setShowDeliverables] = useState(false);
+  const [showWelcomeBanner, setShowWelcomeBanner] = useState(true);
   const [lastCheckTime, setLastCheckTime] = useState<string | null>(null);
 
   // Fetch Cases from API
@@ -164,6 +177,55 @@ export default function Home() {
 
       {/* Main Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-6">
+        {/* Welcome & Quick Start Banner for New Users */}
+        {showWelcomeBanner && (
+          <div className="bg-[#16181E] border-3 border-[#F4F0EA] p-4 sm:p-5 shadow-[5px_5px_0px_#000000] relative space-y-3 animate-fadeIn">
+            <div className="flex items-start justify-between gap-4 border-b border-[#262933] pb-3">
+              <div className="flex items-center space-x-2.5">
+                <div className="p-1.5 bg-[#FF3B00] text-white border border-[#F4F0EA]">
+                  <Sparkles className="w-5 h-5 stroke-[2.5]" />
+                </div>
+                <div>
+                  <h2 className="font-display font-bold text-base uppercase text-[#F4F0EA] tracking-wide">
+                    Welcome to TRIAGE 3D
+                  </h2>
+                  <p className="font-mono text-xs text-slate-300">
+                    AI-powered customer support triage &amp; real-time SLA escalation daemon.
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowWelcomeBanner(false)}
+                className="btn-3d-dark p-1"
+                title="Dismiss Guide Banner"
+              >
+                <X className="w-4 h-4 stroke-[2.5]" />
+              </button>
+            </div>
+
+            <p className="font-mono text-xs text-slate-300 leading-relaxed">
+              New here? Use the form on the left to submit test customer tickets, or watch the daemon automatically escalate overdue tickets in real-time.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs">
+              <Link
+                href="/landing"
+                className="btn-3d-dark px-3 py-1.5 flex items-center space-x-1.5 text-[#00E5FF]"
+              >
+                <HelpCircle className="w-3.5 h-3.5 stroke-[2.5]" />
+                <span>Read System Guide</span>
+              </Link>
+              <button
+                onClick={() => setShowDeliverables(true)}
+                className="btn-3d px-3 py-1.5 flex items-center space-x-1.5 bg-[#FFD600] text-[#0D0E12] border-[#F4F0EA]"
+              >
+                <FileText className="w-3.5 h-3.5 stroke-[2.5]" />
+                <span>View Hackathon Deliverables</span>
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Escalation Alert Banner */}
         <EscalationBanner
           escalatedCases={escalatedAlerts}

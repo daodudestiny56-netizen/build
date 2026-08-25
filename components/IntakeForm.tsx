@@ -88,14 +88,14 @@ export default function IntakeForm({ onSuccess }: IntakeFormProps) {
           </div>
           <div>
             <h2 className="font-display text-sm font-bold uppercase tracking-wider text-[#F4F0EA]">
-              TICKET INGESTION STUB
+              SUBMIT SUPPORT TICKET
             </h2>
-            <p className="font-mono text-[10px] text-slate-400">INPUT DISPATCH INTAKE FORM</p>
+            <p className="font-mono text-[10px] text-slate-400">TEST AI TRIAGE WITH CUSTOM OR PRESET MESSAGES</p>
           </div>
         </div>
 
         <span className="font-mono text-[10px] font-bold bg-[#0D0E12] border-2 border-[#262933] px-2 py-0.5 text-slate-300">
-          DISPATCH // FORM
+          INTAKE FORM
         </span>
       </div>
 
@@ -103,9 +103,9 @@ export default function IntakeForm({ onSuccess }: IntakeFormProps) {
       <div className="bg-[#0D0E12] p-3 border-2 border-[#262933] mb-3 space-y-2">
         <div className="flex items-center justify-between">
           <span className="font-mono text-[11px] font-bold text-[#F4F0EA] uppercase">
-            DEMO PRESET INGESTION:
+            CHOOSE A PRESET EXAMPLE:
           </span>
-          <span className="font-mono text-[9px] text-slate-500 hidden sm:inline">ONE-CLICK DEMO</span>
+          <span className="font-mono text-[9px] text-[#00E676] font-bold">1-CLICK SAMPLE</span>
         </div>
         <div className="flex flex-wrap gap-1.5">
           <button

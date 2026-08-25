@@ -86,17 +86,17 @@ export default function CasesQueuePage() {
             </div>
             <div>
               <h1 className="font-display text-xl font-bold tracking-tight text-[#EDEAE2]">
-                TICKET DISPATCH QUEUE & DIRECTORY
+                ALL SUPPORT CASES
               </h1>
               <p className="font-mono text-xs text-slate-400">
-                Complete directory of all ingested customer cases with live filtering & status tracking
+                Browse, search, and filter all customer support tickets managed by the system.
               </p>
             </div>
           </div>
 
           <Link href="/intake" className="btn-brutal-signal px-3.5 py-2 text-xs font-display flex items-center space-x-1.5">
             <PlusSquare className="w-4 h-4 stroke-[2.5]" />
-            <span>INGEST NEW TICKET</span>
+            <span>SUBMIT NEW TICKET</span>
           </Link>
         </div>
 
