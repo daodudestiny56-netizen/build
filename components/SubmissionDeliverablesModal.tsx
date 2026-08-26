@@ -165,6 +165,31 @@ export default function SubmissionDeliverablesModal({
               Reduces manual triage time by up to 90%, guarantees zero missed SLA escalations through automated background monitoring, and provides full workflow auditability for compliance.
             </p>
           </div>
+
+          {/* Section 8: Production Roadmap & Demo Limitations Spec */}
+          <div className="bg-[#0F1115] border-2 border-[#2B2E37] p-4 space-y-3">
+            <h3 className="font-display text-sm font-bold text-[#00E5FF] uppercase flex items-center gap-2">
+              <Workflow className="w-4 h-4 stroke-[2.5]" /> 8. PRODUCTION ROADMAP &amp; DEMO SPECIFICATIONS
+            </h3>
+            <div className="space-y-2 text-slate-300 text-[11px]">
+              <div className="p-2.5 bg-[#17191F] border border-[#2B2E37]">
+                <strong className="text-[#00E676] block mb-0.5 uppercase">BUILT: Outbound Slack Webhook Integration</strong>
+                Automated webhook dispatch (<code className="bg-[#0F1115] px-1 font-mono text-[#FFD600]">SLACK_WEBHOOK_URL</code>) posts rich formatted breach alert cards to on-call engineer Slack channels whenever the SLA daemon escalates a ticket.
+              </div>
+              <div className="p-2.5 bg-[#17191F] border border-[#2B2E37]">
+                <strong className="text-[#00E5FF] block mb-0.5 uppercase">SIMULATED: 60-Second Demo SLA Windows</strong>
+                Production targets (24-hour enterprise response windows) are compressed to 60 seconds for live demo validation.
+              </div>
+              <div className="p-2.5 bg-[#17191F] border border-[#2B2E37]">
+                <strong className="text-slate-400 block mb-0.5 uppercase">ROADMAP ITEM B: SSE / WebSockets Push Sync</strong>
+                5-second polling used for demo stability; production deployment will transition to Server-Sent Events (SSE).
+              </div>
+              <div className="p-2.5 bg-[#17191F] border border-[#2B2E37]">
+                <strong className="text-slate-400 block mb-0.5 uppercase">ROADMAP ITEM C: Multi-Tenant RBAC Authentication</strong>
+                Single-team workspace model used for evaluation; production deployment adds NextAuth / Clerk role permissions.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

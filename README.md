@@ -42,21 +42,23 @@ If an urgent customer request is at risk of breaching SLA targets, the system ta
 
 ### 4. 3D Neobrutalist UI Design System
 - **Tactile Visual Hierarchy:** Built with 3px solid borders, hard offset black extruded shadows (`box-shadow: 4px 4px 0px #000000`), uppercase blocky display typography (`Space Grotesk`), and high-contrast color tokens.
-- **Physical Rubber Stamp Badges:** Dynamic status badges (`NEW`, `IN PROGRESS`, `ESCALATED`, `RESOLVED`) rendered as physically rotated rubber-stamp elements.
+### 5. Outbound Slack & Webhook Integrations
+- **Live SLA Escalation Alerts:** Automatically dispatches formatted Slack cards via incoming webhooks (`SLACK_WEBHOOK_URL`) the exact moment the SLA daemon escalates an overdue ticket.
+- **Graceful Unset Handling:** If `SLACK_WEBHOOK_URL` is omitted, the engine logs the payload server-side and continues operating without failing.
 
 ---
 
-## Application Route Structure
+## Production Roadmap & Demo Limitations
 
-| Route | Description |
-| :--- | :--- |
-| `/` | **Landing Page / Overview** — First point of contact introducing system architecture, workflow steps, and core features. |
-| `/dispatch` | **Dispatch Command Center** — Live operational feed showing ticket queues, filter controls, SLA daemon status, and rapid intake form. |
-| `/intake` | **Ticket Intake Simulator** — Dedicated portal for simulating incoming raw customer requests and testing AI categorization. |
-| `/cases` | **Cases Queue Directory** — Full searchable case management directory filtered by urgency, status, and category. |
-| `/cases/[id]` | **Single Case Workbench** — Deep inspection view with AI diagnostic breakdown, customer CRM details, and status updates. |
-| `/customers` | **CRM Customer Directory** — Directory of managed customer accounts, assigned SLA tiers, and support contact histories. |
-| `/deliverables` | **Submission Package** — Hackathon submission deliverables modal and architectural overview. |
+To ensure full transparency during hackathon evaluation, the following matrix outlines what features are built for this demo vs. what a production enterprise rollout requires:
+
+| Feature | Demo Implementation | Production Rollout Architecture |
+| :--- | :--- | :--- |
+| **Outbound Webhooks** | **BUILT & CONNECTED** — Slack Incoming Webhooks trigger on SLA breach. | Multi-channel adapters (PagerDuty, SMS via Twilio, Zendesk sync). |
+| **Real-Time Push** | 5-second background HTTP client polling. | Server-Sent Events (SSE) or WebSockets (`ws`) for sub-millisecond multi-agent push. |
+| **Auth & Security** | Single-team internal command center. | NextAuth.js / Clerk authentication with Role-Based Access Control (RBAC). |
+| **Knowledge RAG** | Generative LLM reasoning with context prompt. | Vector search (pgvector / SQLite vector) against internal KB documentation. |
+| **SLA Windows** | 60-second compressed demo timer. | 24-hour business day SLA contracts configured per customer tier. |
 
 ---
 
@@ -66,6 +68,7 @@ If an urgent customer request is at risk of breaching SLA targets, the system ta
 - **Styling:** Tailwind CSS v4 + 3D Neobrutalist Design Tokens (`app/globals.css`)
 - **Database:** SQLite (`data/triage.db`) via `better-sqlite3` (`lib/db.ts`)
 - **AI Engine:** Anthropic Claude / OpenAI / Gemini API integration with 1 auto-retry + heuristic fallback (`lib/ai.ts`)
+- **Outbound Webhooks:** Slack Incoming Webhooks (`lib/slack.ts`)
 - **SLA Daemon:** Deterministic category routing & background SLA checker (`lib/workflow.ts` & `/api/escalate-check`)
 
 ---
@@ -90,12 +93,16 @@ If an urgent customer request is at risk of breaching SLA targets, the system ta
    npm install
    ```
 
-3. Set up environment variables (Optional for custom AI providers):
+3. Set up environment variables:
    Create a `.env.local` file in the root directory:
    ```env
+   # Optional AI Provider Keys
    GEMINI_API_KEY=your_gemini_api_key_here
    ANTHROPIC_API_KEY=your_anthropic_api_key_here
    OPENAI_API_KEY=your_openai_api_key_here
+
+   # Optional Slack Incoming Webhook URL
+   SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/URL
    ```
 
 4. Run the development server:
