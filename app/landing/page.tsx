@@ -124,14 +124,6 @@ export default function LandingPage() {
               <PlusSquare className="w-4 h-4 stroke-[2.5]" />
               <span>Test Intake Simulator</span>
             </Link>
-
-            <Link
-              href="/deliverables"
-              className="btn-3d px-5 py-3 font-mono text-xs font-bold uppercase flex items-center space-x-2 bg-[#FFD600] text-[#0D0E12] border-[#F4F0EA]"
-            >
-              <FileText className="w-4 h-4 stroke-[2.5]" />
-              <span>Submission Deliverables</span>
-            </Link>
           </div>
         </section>
 
@@ -287,9 +279,7 @@ export default function LandingPage() {
       <footer className="border-t-2 border-[#262933] bg-[#0D0E12] py-4 text-center text-xs font-mono text-slate-400">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between px-4 gap-2">
           <span>TRIAGE 3D // AI-POWERED SUPPORT DISPATCH &amp; SLA ESCALATION ENGINE</span>
-          <Link href="/deliverables" className="text-[#FFD600] font-bold hover:underline">
-            VIEW HACKATHON DELIVERABLES
-          </Link>
+          <span className="text-[#00E676] font-bold">AUTOMATED DISPATCH ACTIVE</span>
         </div>
       </footer>
     </div>

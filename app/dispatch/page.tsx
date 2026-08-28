@@ -9,7 +9,6 @@ import FilterBar from '@/components/FilterBar';
 import CaseCard from '@/components/CaseCard';
 import CaseDetailModal from '@/components/CaseDetailModal';
 import EscalationBanner from '@/components/EscalationBanner';
-import SubmissionDeliverablesModal from '@/components/SubmissionDeliverablesModal';
 import {
   Layers,
   RefreshCw,
@@ -20,7 +19,6 @@ import {
   X,
   ArrowRight,
   PlusSquare,
-  FileText,
 } from 'lucide-react';
 
 export default function DispatchPage() {
@@ -44,7 +42,6 @@ export default function DispatchPage() {
   const [selectedCaseId, setSelectedCaseId] = useState<string | null>(null);
   const [escalatedAlerts, setEscalatedAlerts] = useState<any[]>([]);
   const [isPollingActive, setIsPollingActive] = useState(true);
-  const [showDeliverables, setShowDeliverables] = useState(false);
   const [showWelcomeBanner, setShowWelcomeBanner] = useState(true);
   const [lastCheckTime, setLastCheckTime] = useState<string | null>(null);
 
@@ -168,7 +165,6 @@ export default function DispatchPage() {
     <div className="min-h-screen bg-[#0F1115] text-[#EDEAE2] flex flex-col font-sans selection:bg-[#FF4405] selection:text-white">
       {/* Top Navigation */}
       <Navbar
-        onOpenDeliverables={() => setShowDeliverables(true)}
         isPollingActive={isPollingActive}
         onTogglePolling={() => setIsPollingActive(!isPollingActive)}
         lastEscalateCheckTime={lastCheckTime}
@@ -215,13 +211,6 @@ export default function DispatchPage() {
                 <HelpCircle className="w-3.5 h-3.5 stroke-[2.5]" />
                 <span>Read System Guide</span>
               </Link>
-              <button
-                onClick={() => setShowDeliverables(true)}
-                className="btn-3d px-3 py-1.5 flex items-center space-x-1.5 bg-[#FFD600] text-[#0D0E12] border-[#F4F0EA]"
-              >
-                <FileText className="w-3.5 h-3.5 stroke-[2.5]" />
-                <span>View Hackathon Deliverables</span>
-              </button>
             </div>
           </div>
         )}
@@ -311,12 +300,6 @@ export default function DispatchPage() {
         caseId={selectedCaseId}
         onClose={() => setSelectedCaseId(null)}
         onRefreshCases={fetchCases}
-      />
-
-      {/* Submission Deliverables Modal */}
-      <SubmissionDeliverablesModal
-        isOpen={showDeliverables}
-        onClose={() => setShowDeliverables(false)}
       />
 
       {/* Footer */}

@@ -147,6 +147,21 @@ html, body {
   box-shadow: 6px 6px 0px #000000;
 }
 
+.card-dispatch {
+  background-color: var(--panel);
+  border: 3px solid var(--paper);
+  border-radius: 4px;
+  box-shadow: 5px 5px 0px #000000;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.card-dispatch-signal {
+  background-color: var(--panel);
+  border: 3px solid var(--signal);
+  border-radius: 4px;
+  box-shadow: 5px 5px 0px var(--signal);
+}
+
 .card-3d-signal {
   background-color: var(--panel);
   border: 3px solid var(--signal);
@@ -166,6 +181,40 @@ html, body {
   border: 3px solid var(--wire);
   border-radius: 4px;
   box-shadow: 6px 6px 0px var(--wire);
+}
+
+.btn-brutal {
+  border: 3px solid var(--paper);
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 800;
+  border-radius: 4px;
+  box-shadow: 3px 3px 0px #000000;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.btn-brutal:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #000000;
+}
+
+.btn-brutal-dark {
+  border: 3px solid var(--paper);
+  background-color: var(--panel);
+  color: var(--paper);
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 800;
+  border-radius: 4px;
+  box-shadow: 3px 3px 0px #000000;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.btn-brutal-dark:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--paper);
 }
 
 /* Perforated / Dashed Tear-Line Divider */

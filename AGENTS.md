@@ -65,4 +65,3 @@ Maintain the following multi-page App Router structure:
 - `/cases` — Dedicated Case Directory Queue
 - `/cases/[id]` — Dedicated Single Case Workbench Page
 - `/customers` — Embedded CRM Customer Directory
-- `/deliverables` — Hackathon Submission Deliverables Package
